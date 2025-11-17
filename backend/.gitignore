@@ -1,0 +1,17 @@
+
+node_modules
+
+# Logs
+logs/
+*.log
+
+.env
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+
+# VSCode/IDE
+.vscode/*
+.idea
