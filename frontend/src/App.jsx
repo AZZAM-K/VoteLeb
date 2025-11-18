@@ -1,5 +1,12 @@
+import { Routes, Route } from 'react-router'
+
 function App() {
-  return <h1 className='bg-red-400 text-blue-600 text-9xl'>Hello</h1>
+  return (
+    <Routes>
+      <Route path='/' element={<h1>Home Page</h1>} />
+      <Route path='/about' element={<h1>About Page</h1>} />
+    </Routes>
+  )
 }
 
 export default App
