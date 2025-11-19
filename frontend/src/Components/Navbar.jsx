@@ -1,6 +1,6 @@
-import React, { useContext } from "react"
-import { AppContext } from "../Context/AppContext"
-import { Search, Plus, Bell } from "lucide-react"
+import { useContext } from 'react'
+import { AppContext } from '../Context/context'
+import { Search, Plus, Bell } from 'lucide-react'
 
 const Navbar = () => {
   const { user } = useContext(AppContext)
@@ -32,20 +32,18 @@ const Navbar = () => {
         </div>
 
         <div className='flex items-center space-x-3'>
-          
-
           <button className='bg-gray-100 p-2 block md:hidden rounded-full sm:p-2 items-center justify-center'>
             <Bell className='h-5 w-5 text-gray-700' />
           </button>
 
           <div className='hidden md:flex ml-2 items-center gap-2 cursor-pointer group'>
             <img
-              src={user?.profilePicture?.url || "/default-profile.jpg"}
-              alt={user?.username || "User"}
+              src={user?.profilePicture?.url || '/default-profile.jpg'}
+              alt={user?.username || 'User'}
               className='w-9 h-9 rounded-full object-cover border-2 border-transparent transition duration-150'
             />
             <span className='font-medium text-sm text-gray-700'>
-              {user?.username || "Profile"}
+              {user?.username || 'Profile'}
             </span>
           </div>
         </div>
