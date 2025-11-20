@@ -1,25 +1,17 @@
-import Navbar from "../Components/Navbar";
-import SideBar from "../Components/SideBar";
+import Navbar from "../Components/Navbar"
+import SideBar from "../Components/SideBar"
+import SideBar2 from "../Components/SideBar2"
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex text-white bg-white">
+    <div className='flex text-white bg-black/80 min-h-screen'>
       <SideBar />
 
-      <div className="flex-1 flex flex-col">
+      <div className='flex flex-1 flex-col'>
         <Navbar />
-
-        <div className="flex-1 p-8">
-          <h1 className="text-3xl font-bold mb-6">Welcome to LebSpace!</h1>
-          <p className="text-gray-300 mb-6">
-            This is your main content area. Add your dashboard, posts, or any components here.
-          </p>
-
-          <div className="p-6 bg-[#1A4248] rounded-xl shadow-lg">
-            <h2 className="text-xl font-semibold mb-4">Your Dashboard</h2>
-            <p className="text-gray-300">
-              Add your widgets, stats, or other components here.
-            </p>
+        <div className='flex flex-1 p-8 gap-6'>
+          <div className='hidden lg:block w-[400px]'>
+            <SideBar2 />
           </div>
         </div>
       </div>

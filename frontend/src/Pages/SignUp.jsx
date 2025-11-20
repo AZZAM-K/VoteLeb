@@ -39,17 +39,17 @@ const SignUp = () => {
   }
 
   return (
-    <div className='min-h-screen bg-[#0F3238] flex items-center justify-center p-4'>
+    <div className='min-h-screen bg-black flex items-center justify-center p-4'>
       <div className='flex flex-col md:flex-row items-center gap-8 max-w-6xl w-full'>
         <div className='hidden md:block flex-1'>
           <img
-            src='../../public/bigLogo.jpg'
+            src='../../public/Logo.jpg'
             alt='Logo'
             className='w-full object-contain'
           />
         </div>
 
-        <div className='flex-1 w-full max-w-md p-10 bg-[#1A4248] rounded-xl shadow-2xl border border-gray-600'>
+        <div className='flex-1 w-full max-w-md p-10 bg-black rounded-xl shadow-2xl border border-gray-600'>
           {error && (
             <p className='bg-red-900/50 border border-red-700 text-red-300 px-4 py-3 rounded-lg mb-6 text-sm text-center'>
               {error}
@@ -131,10 +131,7 @@ const SignUp = () => {
             <button
               onClick={handleSubmit}
               type='submit'
-              className='w-full py-3 mt-6 font-bold rounded-lg text-black
-                bg-white
-                shadow-xl  hover:bg-[#0F3238] hover:text-white
-                transition-all duration-300 cursor-pointer'
+              className='w-full py-3 mt-6 font-bold rounded-lg text-black bg-linear-to-r from-orange-600 to-orange-500 shadow-xl hover:opacity-90 transition-all duration-300'
             >
               Sign Up
             </button>
@@ -145,7 +142,7 @@ const SignUp = () => {
               Already have an account?{' '}
               <Link
                 to='/login'
-                className='text-white font-semibold hover:text-[#0F3238]'
+                className='text-white font-semibold hover:text-orange-600'
               >
                 Log in
               </Link>

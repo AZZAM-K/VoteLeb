@@ -6,18 +6,20 @@ const Navbar = () => {
   const { user } = useContext(AppContext)
 
   return (
-    <nav className='w-full bg-white border-b border-gray-100 shadow-md sticky top-0 z-50'>
+    <nav className='w-full bg-black/90  border-b border-gray-100 shadow-md sticky top-0 z-50'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between'>
         <div className='flex items-center justify-between'>
-          <div></div>
-          <button className='sm:hidden bg-[#0F3238] text-white p-2 rounded-full flex items-center justify-center'>
-            <Plus className='h-5 w-5' />
-          </button>
-          <span className='block md:hidden ml-32 text-3xl font-extrabold cursor-pointer tracking-wider text-[#0F3238]'>
-            LebSpace
-          </span>
+          <div>
+            <button className='sm:hidden  text-white p-2 rounded-full flex items-center justify-center'>
+              <Plus className='h-10 w-10' />
+            </button>
+          </div>
+          <div>
+            <span className='block md:hidden ml-12 text-3xl font-extrabold cursor-pointer tracking-wider text-white'>
+              LebSpace
+            </span>
+          </div>
         </div>
-
         <div className='flex-1 max-w-lg mx-8 hidden sm:block'>
           <div className='relative'>
             <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400'>
@@ -26,17 +28,17 @@ const Navbar = () => {
             <input
               type='text'
               placeholder='Search for friends, groups, pages...'
-              className='w-full pl-10 pr-4 py-2 text-sm text-gray-700 bg-gray-100 rounded-full border-transparent focus:border-0 focus:ring-2 focus:ring-offset-2 focus:ring-purple-600 transition duration-150 ease-in-out placeholder-gray-500'
+              className='w-full pl-10 pr-4 py-2 text-sm text-gray-700 bg-gray-100 rounded-full border-transparent focus:border-0 focus:ring-2 focus:ring-offset-2 focus:ring-[#F65C21] transition duration-150 ease-in-out placeholder-gray-500'
             />
           </div>
         </div>
-
-        <div className='flex items-center space-x-3'>
-          <button className='bg-gray-100 p-2 block md:hidden rounded-full sm:p-2 items-center justify-center'>
-            <Bell className='h-5 w-5 text-gray-700' />
+        <div className='w-px hidden md:block h-full bg-gray-400'></div>
+        <div className='flex items-center md:w-[20%] space-x-5'>
+          <button className=' p-2 block md:hidden rounded-full sm:p-2 items-center justify-center'>
+            <Bell className='h-7 w-7 text-white' />
           </button>
 
-          <div className='hidden md:flex ml-2 items-center gap-2 cursor-pointer group'>
+          <div className='hidden md:flex ml-2 items-center  gap-2 cursor-pointer group'>
             <img
               src={user?.profilePicture?.url || '/default-profile.jpg'}
               alt={user?.username || 'User'}
