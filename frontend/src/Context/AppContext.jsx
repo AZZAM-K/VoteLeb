@@ -1,29 +1,28 @@
-import { createContext, useState } from "react"
-
-export const AppContext = createContext()
+import { useState } from 'react'
+import { AppContext } from './context'
 
 const AppContextProvider = props => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL
 
-  const [token, setToken] = useState(localStorage.getItem("token") || "")
+  const [token, setToken] = useState(localStorage.getItem('token') || '')
 
   const [user, setUser] = useState(null)
 
   const signup = async formData => {
     try {
       const res = await fetch(`${backendUrl}/api/users/signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
 
       const data = await res.json()
       if (!res.ok) {
-        console.log("Signup error:", data.message)
+        console.log('Signup error:', data.message)
         return { success: false, message: data.message }
       }
 
-      localStorage.setItem("token", data.token)
+      localStorage.setItem('token', data.token)
       setToken(data.token)
       setUser({
         id: data.id,
@@ -40,19 +39,19 @@ const AppContextProvider = props => {
   const login = async formData => {
     try {
       const res = await fetch(`${backendUrl}/api/users/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
 
       const data = await res.json()
 
       if (!res.ok) {
-        console.log("Login error data:", data)
-        return { success: false, message: data.message || "Login failed" }
+        console.log('Login error data:', data)
+        return { success: false, message: data.message || 'Login failed' }
       }
 
-      localStorage.setItem("token", data.token)
+      localStorage.setItem('token', data.token)
       setToken(data.token)
       setUser({
         id: data.id,
@@ -67,8 +66,8 @@ const AppContextProvider = props => {
   }
 
   const logout = () => {
-    localStorage.removeItem("token")
-    setToken("")
+    localStorage.removeItem('token')
+    setToken('')
     setUser(null)
   }
 

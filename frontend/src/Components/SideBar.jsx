@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import { useContext } from 'react'
 import {
   Home,
   Bell,
@@ -62,7 +62,7 @@ const SideBar = () => {
           >
             <Plus size={20} className='stroke-2' />
             <span>Post New</span>
-          </button>
+          </Link>
         </div>
 
         <hr className='border-t border-[#1A4248] my-4' />

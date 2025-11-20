@@ -1,20 +1,20 @@
-import { useState, useContext } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { AppContext } from "../Context/AppContext"
+import { useState, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { AppContext } from '../Context/context'
 
 const SignUp = () => {
   const { signup } = useContext(AppContext)
   const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    gender: "",
-    dateOfBirth: "",
+    username: '',
+    email: '',
+    password: '',
+    gender: '',
+    dateOfBirth: '',
   })
 
-  const [error, setError] = useState("")
+  const [error, setError] = useState('')
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -22,20 +22,19 @@ const SignUp = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    setError("")
+    setError('')
 
     try {
-      const res = await signup(formData) // هذا بيرجع object من AppContext
-      console.log("Signup response:", res) // ضروري تشوف شو جاي
+      const res = await signup(formData)
+      console.log('Signup response:', res)
       if (res.success) {
-        // إذا ناجح، روح مباشرة عال Home page
-        navigate("/")
+        navigate('/')
       } else {
-        setError(res.message || "Something went wrong")
+        setError(res.message || 'Something went wrong')
       }
     } catch (err) {
       console.log(err)
-      setError("Server error")
+      setError('Server error')
     }
   }
 
@@ -140,7 +139,7 @@ const SignUp = () => {
 
           <div className='text-center pt-6 border-t border-gray-700 mt-8'>
             <p className='text-sm text-gray-400'>
-              Already have an account?{" "}
+              Already have an account?{' '}
               <Link
                 to='/login'
                 className='text-white font-semibold hover:text-orange-600'

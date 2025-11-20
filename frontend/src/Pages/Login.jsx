@@ -1,17 +1,17 @@
-import { useState, useContext } from "react"
-import { useNavigate, Link } from "react-router-dom"
-import { AppContext } from "../Context/AppContext"
+import { useState, useContext } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import { AppContext } from '../Context/context'
 
 const Login = () => {
   const { login } = useContext(AppContext)
   const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   })
 
-  const [error, setError] = useState("")
+  const [error, setError] = useState('')
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -19,10 +19,10 @@ const Login = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    setError("")
+    setError('')
     const res = await login(formData)
     if (res.success) {
-      navigate("/")
+      navigate('/')
     } else {
       setError(res.message)
     }
@@ -52,7 +52,7 @@ const Login = () => {
 
           <form onSubmit={handleSubmit} className='space-y-4'>
             <input
-              type='text'
+              type='email'
               name='email'
               placeholder='Email'
               value={formData.email}
@@ -81,7 +81,7 @@ const Login = () => {
 
           <div className='text-center pt-6 border-t border-gray-700 mt-8'>
             <p className='text-sm text-white'>
-              Don't have an account?{" "}
+              Don't have an account?{' '}
               <Link
                 to='/signup'
                 className='text-[#F65C21] font-semibold hover:underline'

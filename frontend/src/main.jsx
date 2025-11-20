@@ -7,7 +7,7 @@ import AppContextProvider from './Context/AppContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AppContextProvider>  
+    <AppContextProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
